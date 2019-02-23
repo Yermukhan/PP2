@@ -14,9 +14,10 @@ namespace Task1
             List<int> list = new List<int>(); // Создание списка (динамический массив), к которому будут добавлены простые числа
             int[] a = new int[n]; // Создание Массива
 
-            string s = Console.ReadLine(); // Ввод строки
+            string s = Console.ReadLine(); // Ввод строки "1" "2" "3" "4" "5"
+
             string[] arr = s.Split(); // Разделение элементов строки на подэлементы и добавление каждого подэлемента в массив строк
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 a[i] = int.Parse(arr[i]); // Ввод элементов массива
             }
@@ -25,11 +26,7 @@ namespace Task1
             {
                 
                 bool flag = true; // Создание переменно bool для возврата "true",если число простое, и "false" если оно не простое
-                
-
-
-
-
+               
                 if (k == 1) flag = false; // flag "false", потому что 1 не простое число
                 for (int j = 2; j <= Math.Sqrt(k); j++)
                 {

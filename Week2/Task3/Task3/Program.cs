@@ -57,6 +57,7 @@ namespace Task3
             string path = @"C:\PP2\Week2";
             DirectoryInfo directory = new DirectoryInfo(path);
             //Вывод имени основной папки
+
             Console.WriteLine(directory.Name);
             GetDir(directory, 1); //Вызываем функцию GetDir (), чтобы получить все дириктории и файлы внутри папки "Week2"
             Console.ReadKey();

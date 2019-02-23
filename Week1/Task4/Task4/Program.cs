@@ -27,6 +27,7 @@ namespace Task4
                     Console.Write(a[i, j]); // Вывод двумерного массива
                 }
                 Console.WriteLine();
+
             }
             Console.ReadKey();
         }
