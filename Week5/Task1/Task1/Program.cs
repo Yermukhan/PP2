@@ -9,62 +9,59 @@ using System.Xml.Serialization;
 
 namespace Task1
 {
-    public class Workers
+    public class Complex
     {
-          public string name;
-          public string iq;
-          public int age;
+        public int real;
+        public int imaginary;
 
-          public Workers() { }
-          public Workers(string name, string iq, int age)
+        public Complex() { }
+        public Complex(int real, int imaginary)
         {
-            this.name = name;
-            this.iq = iq;
-            this.age = age;
+            this.real = real;
+            this.imaginary = imaginary;
+
         }
     }
 
     class Program
     {
 
-            static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Workers w = new Workers("Yerma", "Rabota", 19);
-            Console.WriteLine(w.name + " " + w.iq + " " + w.age);
+            Complex c = new Complex(5, 2);
+            // Serialize(c);
+            Deserialize();
             Console.ReadKey();
-            //Serialize(w);
-              Deserialize(w);
-            
-            
+
 
         }
 
-             /*static void Serialize(Workers Worker)
+        static void Serialize(Complex c)
         {
             FileStream fs = new FileStream("Data.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            XmlSerializer ser = new XmlSerializer(typeof(Workers));
-            ser.Serialize(fs, Worker);
-            
-             }
-             */
-             
+            XmlSerializer ser = new XmlSerializer(typeof(Complex));
+            ser.Serialize(fs, c);
+            fs.Close();
 
-            /*static void Deserialize(Workers Worker)
-        {
-            FileStream fs = new FileStream("Data.Xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            XmlSerializer sep = new XmlSerializer(typeof(Workers));
-            Worker = sep.Deserialize(fs) as Workers;
-            fs.Close();
         }
-        */
-        static void Deserialize(Workers Worker)
+
+
+
+
+
+        static void Deserialize()
         {
+
             FileStream fs = new FileStream("Data.Xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            XmlSerializer sep = new XmlSerializer(typeof(Workers));
-            Worker = sep.Deserialize(fs) as Workers;
+            XmlSerializer sep = new XmlSerializer(typeof(Complex));
+            Complex c1 = sep.Deserialize(fs) as Complex;
             fs.Close();
+            Console.WriteLine(c1.real);
         }
-      }
-       }
+
+
+    }
+}
+       
     
 
